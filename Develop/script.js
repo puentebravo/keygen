@@ -4,7 +4,7 @@
 
 // *Password character string
 var pwAlphaLower = "abcdefghijklmnopqrstuvwxyz";
-var pwAlphaSourceLower = pwSource.split("");
+var pwAlphaSourceLower = pwAlphaLower.split("");
 
 var pwAlphaUpper = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
 var pwAlphaSourceUpper = pwAlphaUpper.split("");
@@ -45,6 +45,8 @@ function generatePassword() {
     alert(
       "Password must contain between 8 and 126 characters. Please enter a valid number."
     );
+    passwordText.value = ""
+    return pwLength;
   } else {
     alert("Selected: " + pwLength + " characters.");
   }
@@ -64,20 +66,15 @@ function generatePassword() {
   console.log("WORKING AGAIN");
 
   if (specC) {
-    combineArray.concat(pwSpecSource);
-    console.log("WORK, WORK WORK");
-  }
-  if (lcChar) {
-    combineArray.concat(pwAlphaSourceLower);
-    console.log("Trabajo Bueno!");
-  }
-  if (ucChar) {
-    combineArray.concat(pwAlphaSourceUpper);
-    console.log("Genkii! Ganbate.");
-  }
-  if (numChar) {
-    combineArray.concat();
-  }
+    combineArray.concat(pwAlphaSourceLower, pwSpecSource);
+   } else if (lcChar) {
+     combineArray.concat(pwAlphaSourceLower)
+   } else if (ucChar) {
+     combineArray.concat(pwAlphaSourceLower, pwAlphaSourceUpper)
+   } else if (numChar)
+    
+  
+  
   // Math.random function to generate a password from the string, with if/else statements to specify the parameters for that string.
 }
 
