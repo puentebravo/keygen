@@ -27,7 +27,7 @@ var charEl = document.querySelector("#charEl");
 var spcCharEl = document.querySelector("#spcCharEl");
 
 // *Variable to print boolean result of lowercase selection
-var lCaseEl = document.querySelector("#lcaseEl");
+var lCaseEl = document.querySelector("#lCaseEl");
 
 // *Variable to print boolean result of uppercase selection
 var uCaseEl = document.querySelector("#uCaseEl");
@@ -52,21 +52,26 @@ function generatePassword() {
     return;
   } else {
     alert("Selected: " + pwLength + " characters.");
+    charEl.textContent = pwLength;
   }
   console.log(pwLength);
   console.log("AM STILL WORKING");
   var specC = confirm(
     "Do you want the password to contain special characters (#$%@!) ?"
   );
+  spcCharEl.textContent = "Special Characters: " + specC;
   console.log("STILL WORKING");
   var lcChar = confirm(
     "Do you want the password to contain lowercase letters?"
   );
+  lCaseEl.textContent = "Lowercase: " + lcChar;
   var ucChar = confirm(
     "Do you want the password to contain uppercase letters?"
   );
+  uCaseEl.textContent = "Uppercase: " + ucChar;
   var numChar = confirm("Do you want the password to contain numbers?");
   console.log("WORKING AGAIN");
+  numCharEl.textContent = "Numbers: " + numChar;
 
   if (specC) {
     pwSource.concat(pwSpecSource);
