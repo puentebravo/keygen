@@ -15,7 +15,7 @@ var pwNumSource = pwNum.split("");
 var pwSpec = "!@#$%^&*.?";
 var pwSpecSource = pwSpec.split("");
 
-var pwArray = [];
+var pwSource = [];
 
 // *defines button variable to call later
 var generateBtn = document.querySelector("#generate");
@@ -37,11 +37,14 @@ var numCharEl = document.querySelector("#numCharEl");
 
 function generatePassword() {
   //User Prompt: password length (8 - 126 characters)
+  var password = "";
   var pwLength = parseInt(
-    prompt("How many characters would you like your password to contain?")
+    prompt(
+      "How many characters would you like your password to contain? Input must be between 8 and 128 characters."
+    )
   );
   console.log("AM WORKING.");
-  if (pwLength < 8 || pwLength > 128 || pwLength === NaN) {
+  if (pwLength < 8 || pwLength > 128 || pwLength === NaN || pwLength === null) {
     alert(
       "Password must contain between 8 and 128 characters. Please click Generate and enter a valid number."
     );
@@ -66,20 +69,21 @@ function generatePassword() {
   console.log("WORKING AGAIN");
 
   if (specC) {
-    pwArray.concat(pwAlphaSourceLower, pwSpecSource);
+    pwSource.concat(pwSpecSource);
   }
   if (lcChar) {
-    pwArray.concat(pwAlphaSourceLower);
+    pwSource.concat(pwAlphaSourceLower);
   }
   if (ucChar) {
-    pwArray.concat(pwAlphaSourceLower, pwAlphaSourceUpper);
+    pwSource.concat(pwAlphaSourceUpper);
   }
   if (numChar) {
-    pwArray.concat(pwAlphaSourceLower, pwNumSource);
+    pwSource.concat(pwNumSource);
   }
 
   for (i = 0, i < pwLength; i++; ) {
-    Math.floor(Math.random() * pwLength);
+    password = pwSource.charAt(Math.floor(Math.random() * pwSource.length));
+    return password;
   }
 }
 
