@@ -67,12 +67,19 @@ function generatePassword() {
 
   if (specC) {
     pwArray.concat(pwAlphaSourceLower, pwSpecSource);
-  } else if (lcChar) {
+  }
+  if (lcChar) {
     pwArray.concat(pwAlphaSourceLower);
-  } else if (ucChar) {
+  }
+  if (ucChar) {
     pwArray.concat(pwAlphaSourceLower, pwAlphaSourceUpper);
-  } else if (numChar) {
+  }
+  if (numChar) {
     pwArray.concat(pwAlphaSourceLower, pwNumSource);
+  }
+
+  for (i = 0, i < pwLength; i++; ) {
+    Math.floor(Math.random() * pwLength);
   }
 }
 
