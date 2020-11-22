@@ -18,6 +18,8 @@ Keygen was created to meet the needs of a client requiring an easy way for their
 
 # Screenshots:
 
+![App Demo](./Assets/KeyGenSecurepass.gif)
+
 # Link to Deployed App:
 
 [Deployed App](https://puentebravo.github.io/keygen/)

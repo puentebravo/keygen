@@ -27,14 +27,14 @@ function generatePassword() {
       "How many characters would you like your password to contain? Input must be between 8 and 128 characters."
     )
   );
-
+  //Validate input for user prompt
   if (pwLength > 8 && pwLength < 128) {
     alert("Selected: " + pwLength + " characters.");
     charEl.textContent = "Password Length: " + pwLength;
     var specC = confirm(
       "Do you want the password to contain special characters (#$%@!) ?"
     );
-
+    //Print selection beneath password output box for user clarity
     spcCharEl.textContent = "Special Characters: " + specC;
 
     var lcChar = confirm(
@@ -50,10 +50,11 @@ function generatePassword() {
 
     var numChar = confirm("Do you want the password to contain numbers?");
     numCharEl.textContent = "Numbers: " + numChar;
-
+    // define empty master password array
     var pwSource = "";
+    // define empty local variable for password output
     var password = "";
-
+    // define array permutations to account for user inputs
     if (specC) {
       pwSource += "!@#$%^&*.?";
     }
@@ -66,12 +67,14 @@ function generatePassword() {
     if (numChar) {
       pwSource += "1234567890";
     }
-    console.log(pwSource);
+    //Generates a random sequence of characters
     for (i = 0; i < pwSource.length; i++) {
       password += pwSource.charAt(Math.floor(Math.random() * pwSource.length));
     }
+    //Returns password
     return password;
   } else {
+    //Ends function, restarts process if user does not enter a valid input
     alert(
       "Password must contain between 8 and 128 characters. Please click Generate and enter a valid number."
     );
