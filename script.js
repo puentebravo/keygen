@@ -67,8 +67,8 @@ function generatePassword() {
       pwSource += "1234567890";
     }
     console.log(pwSource);
-    for (i = 0, n = pwSource.length; i < length; ++i) {
-      password += pwSource.charAt(Math.floor(Math.random() * n));
+    for (i = 0; i < pwSource.length; i++) {
+      password += pwSource.charAt(Math.floor(Math.random() * pwSource.length));
     }
     return password;
   } else {
