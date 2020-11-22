@@ -15,7 +15,7 @@ var pwNumSource = pwNum.split("");
 var pwSpec = "!@#$%^&*.?";
 var pwSpecSource = pwSpec.split("");
 
-var combineArray = [];
+var pwArray = [];
 
 // *defines button variable to call later
 var generateBtn = document.querySelector("#generate");
@@ -37,16 +37,16 @@ var numCharEl = document.querySelector("#numCharEl");
 
 function generatePassword() {
   //User Prompt: password length (8 - 126 characters)
-  var pwLength = prompt(
-    "How many characters would you like your password to contain?"
+  var pwLength = parseInt(
+    prompt("How many characters would you like your password to contain?")
   );
   console.log("AM WORKING.");
-  if (pwLength < 8 || pwLength > 126) {
+  if (pwLength < 8 || pwLength > 128 || pwLength === NaN) {
     alert(
-      "Password must contain between 8 and 126 characters. Please enter a valid number."
+      "Password must contain between 8 and 128 characters. Please click Generate and enter a valid number."
     );
-    passwordText.value = ""
-    return pwLength;
+    passwordText.value = "";
+    return;
   } else {
     alert("Selected: " + pwLength + " characters.");
   }
@@ -66,17 +66,17 @@ function generatePassword() {
   console.log("WORKING AGAIN");
 
   if (specC) {
-    combineArray.concat(pwAlphaSourceLower, pwSpecSource);
-   } else if (lcChar) {
-     combineArray.concat(pwAlphaSourceLower)
-   } else if (ucChar) {
-     combineArray.concat(pwAlphaSourceLower, pwAlphaSourceUpper)
-   } else if (numChar)
-    
-  
-  
-  // Math.random function to generate a password from the string, with if/else statements to specify the parameters for that string.
+    pwArray.concat(pwAlphaSourceLower, pwSpecSource);
+  } else if (lcChar) {
+    pwArray.concat(pwAlphaSourceLower);
+  } else if (ucChar) {
+    pwArray.concat(pwAlphaSourceLower, pwAlphaSourceUpper);
+  } else if (numChar) {
+    pwArray.concat(pwAlphaSourceLower, pwNumSource);
+  }
 }
+
+// Math.random function to generate a password from the string, with if/else statements to specify the parameters for that string.
 
 // Write password to the #password input
 function writePassword() {
