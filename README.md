@@ -20,7 +20,7 @@ Keygen was created to meet the needs of a client requiring an easy way for their
 
 # Link to Deployed App:
 
-[](https://puentebravo.github.io/keygen/)
+[Deployed App](https://puentebravo.github.io/keygen/)
 
 # Credits
 
