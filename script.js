@@ -28,7 +28,8 @@ function generatePassword() {
     )
   );
   //Validate input for user prompt
-  if (pwLength > 8 && pwLength < 128) {
+  if (pwLength >= 8 && pwLength <= 128) {
+    console.log(pwLength);
     alert("Selected: " + pwLength + " characters.");
     charEl.textContent = "Password Length: " + pwLength;
     var specC = confirm(
@@ -67,9 +68,10 @@ function generatePassword() {
     if (numChar) {
       pwSource += "1234567890";
     }
+    console.log(pwSource);
     //Generates a random sequence of characters
-    for (i = 0; i < pwSource.length; i++) {
-      password += pwSource.charAt(Math.floor(Math.random() * pwSource.length));
+    for (i = 0, x = pwSource.length; i < pwLength; i++) {
+      password += pwSource.charAt(Math.floor(Math.random() * x));
     }
     //Returns password
     return password;
